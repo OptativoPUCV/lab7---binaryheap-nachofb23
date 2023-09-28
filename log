@@ -145,3 +145,36 @@ Thu 28 Sep 2023 02:50:57 PM UTC:
  tests:  2|2
 total_score: 20/70
 d13fba3
+Thu 28 Sep 2023 03:23:03 PM UTC: 
+ heap.c | 27 +++++++++++++++++++++++++++
+ 1 file changed, 27 insertions(+)
+In file included from test.c:4:
+heap.c: In function ‘heap_pop’:
+heap.c:70:23: error: invalid operands to binary * (have ‘int’ and ‘char * (*)(const char *, int)’)
+   70 |     int leftChild = 2 * index + 1;
+      |                       ^
+      |                       |
+      |                       char * (*)(const char *, int)
+heap.c:71:24: error: invalid operands to binary * (have ‘int’ and ‘char * (*)(const char *, int)’)
+   71 |     int rightChild = 2 * index + 2;
+      |                        ^
+      |                        |
+      |                        char * (*)(const char *, int)
+heap.c:72:20: error: initialization of ‘int’ from ‘char * (*)(const char *, int)’ makes integer from pointer without a cast [-Werror=int-conversion]
+   72 |     int smallest = index;
+      |                    ^~~~~
+heap.c:81:18: error: comparison between pointer and integer [-Werror]
+   81 |     if (smallest == index) {
+      |                  ^~
+heap.c:82:36: error: array subscript is not an integer
+   82 |       heapElem temp = pq->heapArray[index];
+      |                                    ^
+heap.c:83:20: error: array subscript is not an integer
+   83 |       pq->heapArray[index] = pq->heapArray[smallest];
+      |                    ^
+heap.c:85:13: error: lvalue required as left operand of assignment
+   85 |       index = smallest;
+      |             ^
+cc1: all warnings being treated as errors
+Compilation failed
+b077bc9
