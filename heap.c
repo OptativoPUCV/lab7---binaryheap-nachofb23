@@ -47,7 +47,7 @@ Heap* createHeap(){
   }
 
   pq->size = 0;
-  pq->capac = 0;
+  pq->capac = 3;
   
    return pq;
 }
