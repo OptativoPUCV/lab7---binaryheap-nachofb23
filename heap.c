@@ -35,25 +35,18 @@ void heap_push(Heap* pq, void* data, int priority){
       exit(EXIT_FAILURE);
     }
   }
-
-  heapElem newElem;
-  newElem.data = data;
-  newElem.priority = priority;
-
+  
   int index = pq->size;
-  pq->heapArray[index] = newElem;
+  pq->heapArray[index].data = data;
+  pq->heapArray[index].priority = priority;
+
   pq->size++;
 
-  while (index > 0) {
-    int parentIndex = (index - 1) / 2;
-    if (pq->heapArray[index].priority < pq->heapArray[parentIndex].priority) {
-      heapElem temp = pq->heapArray[index];
-      pq->heapArray[index] = pq->heapArray[parentIndex];
-      pq->heapArray[parentIndex] = temp;
-      index = parentIndex;
-    } else {
-        break;
-    }
+  while (index > 0 && priority > pq->heapArray[(index - 1) / 2].priority) {
+    heapElem temp = pq->heapArray[index];
+    pq->heapArray[index] = pq->heapArray[(index - 1) / 2];
+    pq->heapArray[(index - 1) / 2] = temp;
+    index = (index - 1) / 2;
   }
 }
 
