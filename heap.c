@@ -33,6 +33,18 @@ void heap_pop(Heap* pq){
 }
 
 Heap* createHeap(){
+  Heap* pq = (Heap*)malloc(sizeof(Heap));
+  if (pq == NULL) {
+    perror("Error al crear el Heap");
+    exit(EXIT_FAILURE);
+  }
 
-   return NULL;
+  pq->heapArray = (heapElem*)malloc(sizeof(heapElem) * 3);
+  if (pq->heapArray != NULL) {
+    perror("Error al reservar memoria del arreglo");
+    free(pq);
+    exit(EXIT_FAILURE);
+  }
+  
+   return pq;
 }
