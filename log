@@ -8,3 +8,9 @@ Thu 28 Sep 2023 02:12:12 PM UTC:
  tests:  0|0
    [ INFO ] Heap* h = createHeap()
 81f7ccc
+Thu 28 Sep 2023 02:12:49 PM UTC: 
+ heap.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+ tests:  0|4
+total_score: 0/70
+73047f7

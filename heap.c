@@ -40,11 +40,14 @@ Heap* createHeap(){
   }
 
   pq->heapArray = (heapElem*)malloc(sizeof(heapElem) * 3);
-  if (pq->heapArray != NULL) {
+  if (pq->heapArray == NULL) {
     perror("Error al reservar memoria del arreglo");
     free(pq);
     exit(EXIT_FAILURE);
   }
+
+  pq->size = 0;
+  pq->capac = 0;
   
    return pq;
 }
