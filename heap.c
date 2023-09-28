@@ -42,6 +42,7 @@ void heap_push(Heap* pq, void* data, int priority){
 
   int index = pq->size;
   pq->heapArray[index] = newElem;
+  pq->size++;
 
   while (index > 0) {
     int parentIndex = (index - 1) / 2;
