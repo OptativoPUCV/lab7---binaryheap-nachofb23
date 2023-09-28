@@ -72,3 +72,26 @@ heap.c:51:13: error: assignment to ‘int’ from ‘void *’ makes integer fro
 cc1: all warnings being treated as errors
 Compilation failed
 96489a3
+Thu 28 Sep 2023 02:40:43 PM UTC: 
+ heap.c | 1 +
+ 1 file changed, 1 insertion(+)
+In file included from test.c:4:
+heap.c: In function ‘heap_push’:
+heap.c:48:39: error: self-comparison always evaluates to false [-Werror=tautological-compare]
+   48 |     if (pq->heapArray[index].priority < pq->heapArray[index].priority) {
+      |                                       ^
+heap.c:50:43: error: array subscript is not an integer
+   50 |       pq->heapArray[index] = pq->heapArray[data];
+      |                                           ^
+heap.c:51:20: error: array subscript is not an integer
+   51 |       pq->heapArray[data] = temp;
+      |                    ^
+heap.c:52:13: error: assignment to ‘int’ from ‘void *’ makes integer from pointer without a cast [-Werror=int-conversion]
+   52 |       index = data;
+      |             ^
+heap.c:47:9: error: unused variable ‘parentIndex’ [-Werror=unused-variable]
+   47 |     int parentIndex = (index - 1) / 2;
+      |         ^~~~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+5e64567
