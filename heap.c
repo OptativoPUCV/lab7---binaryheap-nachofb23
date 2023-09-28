@@ -66,25 +66,26 @@ void heap_pop(Heap* pq){
   pq->heapArray[0] = pq->heapArray[pq->size - 1];
   pq->size--;
 
+  int index = 0;
   while (1) {
     int leftChild = 2 * index + 1;
     int rightChild = 2 * index + 2;
     int smallest = index;
 
-    if (leftChild > pq->size && pq->heapArray[leftChild].priority < pq->heapArray[smallest]. priority) {
+    if (leftChild < pq->size && pq->heapArray[leftChild].priority < pq->heapArray[smallest]. priority) {
       smallest = leftChild;
     }
     if (rightChild < pq->size && pq->heapArray[rightChild].priority < pq->heapArray[smallest]. priority) {
       smallest = rightChild;
     }
 
-    if (smallest == index) {
+    if (smallest != index) {
       heapElem temp = pq->heapArray[index];
       pq->heapArray[index] = pq->heapArray[smallest];
       pq->heapArray[smallest] = temp;
       index = smallest;
     } else {
-      break;
+        break;
     }
   }
 }

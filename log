@@ -178,3 +178,9 @@ heap.c:85:13: error: lvalue required as left operand of assignment
 cc1: all warnings being treated as errors
 Compilation failed
 b077bc9
+Thu 28 Sep 2023 03:24:04 PM UTC: 
+ heap.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+ tests:  2|2
+total_score: 20/70
+76f85c9
