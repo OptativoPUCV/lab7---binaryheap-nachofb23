@@ -65,10 +65,10 @@ void heap_pop(Heap* pq){
     int rightChild = 2 * index + 2;
     int largest = index;
 
-    if (leftChild < pq->size && pq->heapArray[leftChild].priority < pq->heapArray[largest]. priority) {
+    if (leftChild < pq->size && pq->heapArray[leftChild].priority > pq->heapArray[largest]. priority) {
       largest = leftChild;
     }
-    if (rightChild < pq->size && pq->heapArray[rightChild].priority < pq->heapArray[largest]. priority) {
+    if (rightChild < pq->size && pq->heapArray[rightChild].priority > pq->heapArray[largest]. priority) {
       largest = rightChild;
     }
 
